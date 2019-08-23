@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Havas Mirror</title>
+    <meta name="description" content="Mirror at havas.">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.min.js"></script>
+    <script src="./isMobile.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <style>
+        body,
+        html {
+            margin: 0;
+        }
+
+        canvas {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .wrapper {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            z-index: 100;
+            text-align: center;
+            display: none;
+        }
+
+        .redirect {
+            font-size: 18px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="redirect">Please try with desktop or laptop.</div>
+    </div>
+    <script>
+        const width = 1020;
+        const height = 760;
+        let interval = 20;
+        let havas;
+
+        function setup() {
+            createCanvas(width, height);
+            img = createCapture(VIDEO);
+            img.hide();
+            img.size(width, height);
+            noStroke();
+        }
+
+        function draw() {
+            background(255);
+            img.loadPixels();
+            for (let y = 0; y < img.height; y += interval) {
+                for (let x = 0; x < img.width; x += interval) {
+                    let i = y * width + (img.width - x - 1);
+                    let r = (255 - img.pixels[i * 4]) / 255;
+                    let g = (255 - img.pixels[i * 4 + 1]) / 255;
+                    let b = (255 - img.pixels[i * 4 + 2]) / 255;
+                    let darkness = (r + g + b) / 3;
+                    //                    let radius = 20 * darkness;
+
+                    if (darkness > 0.8) {
+                        fill(0);
+                        rect(x + (interval * 2 / 5), y + (interval * 2 / 5), interval * 3 / 5, interval / 5);
+                        rect(x + (interval * 4 / 5), y + (interval * 2 / 5), interval / 5, interval * 3 / 5);
+                    }
+
+                    fill(153);
+                    rect(x + (interval * 2 / 5), y, interval / 5, interval * 2 / 5);
+                    fill(204);
+                    rect(x + (interval * 2 / 5), y + (interval * 3 / 5), interval / 5, interval * 2 / 5);
+
+                }
+            }
+        }
+
+
+        if (isMobile.phone || isMobile.tablet) {
+            document.querySelector('.wrapper').style.display = 'block';
+        }
+
+    </script>
+</body>
+
+</html>
