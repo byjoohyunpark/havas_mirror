@@ -52,6 +52,19 @@
                     let size = interval / 5;
                     let radius = size / 2;
 
+                    // left top 
+                    push();
+                    rectMode(CORNER);
+                    fill(0, 255 * 0.6);
+                    rect(x + size, y, size * darkness, (size * 2) + radius);
+                    pop();
+
+                    //left bottom
+                    push();
+                    rectMode(CORNER);
+                    fill(0, 255 * 0.4);
+                    rect(x + size, y + (size * 2) + radius, size * darkness, (size * 2) + radius);
+                    pop();
 
                     // middle 
                     push();
@@ -65,16 +78,6 @@
                     fill(0);
                     rectMode(CORNERS);
                     rect(x + (size * 4) - (size * darkness), y + (size * 2) + radius, x + (size * 4), y + (size * 5));
-                    pop();
-
-                    push();
-                    rectMode(CORNER);
-                    // left top 
-                    fill(0, 255 * 0.6);
-                    rect(x + size, y, size * darkness, (size * 2) + radius);
-                    //left bottom
-                    fill(0, 255 * 0.4);
-                    rect(x + size, y + (size * 2) + radius, size * darkness, (size * 2) + radius);
                     pop();
 
 
