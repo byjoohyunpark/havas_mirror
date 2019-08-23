@@ -53,6 +53,38 @@
                     let size = interval / 5;
                     let radius = size / 2;
 
+
+                    // // from center
+                    // // left top 
+                    // push();
+                    // rectMode(CORNERS);
+                    // fill(0, 255 * 0.6);
+                    // rect(x + size, y + ((size * 2) + radius) * (1 - darkness), x + (size * (1 + darkness)), y + (size * 2) + radius);
+                    // pop();
+
+                    // //left bottom
+                    // push();
+                    // rectMode(CORNERS);
+                    // fill(0, 255 * 0.4);
+                    // rect(x + size, y + (size * 2) + radius, x + (size * (1 + darkness)), y + ((size * 2) + radius) * (1 + darkness));
+                    // pop();
+
+                    // // middle 
+                    // push();
+                    // rectMode(RADIUS);
+                    // fill(0);
+                    // rect(x + (size * 2) + radius, y + (size * 2) + radius, radius * 3, radius * darkness);
+                    // pop();
+
+                    // // right bottom
+                    // push();
+                    // fill(0);
+                    // rectMode(CORNERS);
+                    // rect(x + (size * (4 - darkness)), y + (size * 2) + radius, x + (size * 4), y + ((size * 2) + radius) * (1 + darkness));
+                    // pop();
+
+
+                    // all changing ver
                     // left top 
                     push();
                     rectMode(CORNER);
@@ -82,21 +114,36 @@
                     pop();
 
 
-                    // fill(0);
-                    // // middle 
-                    // rect(x + (size * 2) + radius, y + (size * 2) + radius, radius * 3, radius * darkness);
-
-                    // // right bottom
-                    // rect(x + (size * 3) + radius, y + (size * 4), radius * darkness, radius * 2);
-
+                    // // all changing variation
                     // // left top 
+                    // push();
+                    // rectMode(CORNERS);
                     // fill(0, 255 * 0.6);
-                    // rect(x + size + radius, y + size, radius * darkness, radius * 2);
+                    // rect(x + size, y + ((size * 2) + radius) * (1 - darkness), x + (size * (1 + darkness)), y + (size * 2) + radius);
+                    // pop();
 
                     // //left bottom
+                    // push();
+                    // rectMode(CORNER);
                     // fill(0, 255 * 0.4);
-                    // rect(x + size + radius, y + (size * 4), radius * darkness, radius * 2);
+                    // rect(x + size, y + (size * 2) + radius, size * darkness, (size * 2) + radius);
+                    // pop();
 
+                    // // middle 
+                    // push();
+                    // rectMode(RADIUS);
+                    // fill(0);
+                    // rect(x + (size * 2) + radius, y + (size * 2) + radius, radius * 3, radius * darkness);
+                    // pop();
+
+                    // // right bottom
+                    // push();
+                    // fill(0);
+                    // rectMode(CORNERS);
+                    // rect(x + (size * 4) - (size * darkness), y + (size * 2) + radius, x + (size * 4), y + (size * 5));
+                    // pop();
+
+                   
                 }
             }
         }
