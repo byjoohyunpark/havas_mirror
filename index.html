@@ -27,10 +27,9 @@
 
 <body>
     <script>
-        const width = 1020;
-        const height = 760;
+        const width = 1040;
+        const height = 780;
         const interval = 20;
-
 
         function setup() {
             createCanvas(width, height);
@@ -38,7 +37,6 @@
             img.hide();
             img.size(width, height);
             noStroke();
-            // rectMode(RADIUS);
         }
 
         function draw() {
@@ -55,7 +53,40 @@
                     let radius = size / 2;
 
 
-                    // // from center
+
+                    // version 1
+                    // left top 
+                    push();
+                    rectMode(CORNER);
+                    fill(0, 255 * 0.6);
+                    rect(x + size, y, size * darkness, (size * 2) + radius);
+                    pop();
+
+                    //left bottom
+                    push();
+                    rectMode(CORNER);
+                    fill(0, 255 * 0.4);
+                    rect(x + size, y + (size * 2) + radius, size * darkness, (size * 2) + radius);
+                    pop();
+
+                    // middle 
+                    push();
+                    rectMode(RADIUS);
+                    fill(0);
+                    rect(x + (size * 2) + radius, y + (size * 2) + radius, radius * 3, radius * darkness);
+                    pop();
+
+                    // right bottom
+                    push();
+                    fill(0);
+                    rectMode(CORNERS);
+                    rect(x + (size * 4) - (size * darkness), y + (size * 2) + radius, x + (size * 4), y + (size * 5));
+                    pop();
+
+
+
+
+                    // // version 2
                     // // left top 
                     // push();
                     // rectMode(CORNERS);
@@ -85,34 +116,6 @@
                     // pop();
 
 
-                    // all changing ver
-                    // left top 
-                    push();
-                    rectMode(CORNER);
-                    fill(0, 255 * 0.6);
-                    rect(x + size, y, size * darkness, (size * 2) + radius);
-                    pop();
-
-                    //left bottom
-                    push();
-                    rectMode(CORNER);
-                    fill(0, 255 * 0.4);
-                    rect(x + size, y + (size * 2) + radius, size * darkness, (size * 2) + radius);
-                    pop();
-
-                    // middle 
-                    push();
-                    rectMode(RADIUS);
-                    fill(0);
-                    rect(x + (size * 2) + radius, y + (size * 2) + radius, radius * 3, radius * darkness);
-                    pop();
-
-                    // right bottom
-                    push();
-                    fill(0);
-                    rectMode(CORNERS);
-                    rect(x + (size * 4) - (size * darkness), y + (size * 2) + radius, x + (size * 4), y + (size * 5));
-                    pop();
 
                 }
             }
