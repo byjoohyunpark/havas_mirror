@@ -37,6 +37,7 @@
             img.hide();
             img.size(width, height);
             noStroke();
+            // rectMode(CENTER);
         }
 
         function draw() {
@@ -51,16 +52,33 @@
                     let darkness = (r + g + b) / 3;
                     //                    let radius = 20 * darkness;
 
-                    // if (darkness > 0.8) {
-                        fill(0);
-                        rect(x + (interval * 2 / 5), y + (interval * 2 / 5), interval * 3 / 5, interval * darkness / 5);
-                        rect(x + (interval * 4 / 5), y + (interval * 2 / 5), interval * darkness / 5, interval * 3 / 5);
+                    // // if (darkness > 0.8) {
+                    fill(0);
+
+                    // middle 
+                    rect(x + (interval * 2 / 5), y + (interval * 2 / 5), interval * 3 / 5, interval * darkness / 5);
+
+                    // right bottom
+                    rect(x + (interval * 4 / 5), y + (interval * 2 / 5), interval * darkness / 5, interval * 3 / 5);
                     // }
 
+                    // left top 
                     fill(153);
                     rect(x + (interval * 2 / 5), y, interval * darkness / 5, interval * 2 / 5);
+
+                    //left bottom
                     fill(204);
                     rect(x + (interval * 2 / 5), y + (interval * 3 / 5), interval * darkness/ 5, interval * 2 / 5);
+
+                    // let lw = (interval * darkness) / 5;
+                    // let lh = (interval * 2) / 5;
+                    // fill(153);
+                    // rect(x + (interval * 2) / 5, y, lw, lh);
+
+                    // // let lbw = interval * darkness / 5;
+                    // // let lbh = interval * 2 / 5;
+                    // fill(204);
+                    // rect(x + (interval * 2) / 5, y + (interval * 3 / 5), lw, lh);
 
                 }
             }
