@@ -73,6 +73,8 @@
         // const height = 780;
 
         let background_color = 0;
+        let mode = 'color';
+
         let interval = 20;
 
         let width = 0;
@@ -81,7 +83,7 @@
         }
         let height = width / 1.3
 
-        let mode = 'color';
+
 
         function toggleMode() {
             if (mode === 'color') {
@@ -99,7 +101,6 @@
             interval = -1 * val
         }
 
-
         function setup() {
             createCanvas(width, height);
             img = createCapture(VIDEO);
@@ -115,8 +116,6 @@
                 for (let x = 0; x < img.width; x += interval) {
                     let i = y * width + (img.width - x - 1);
 
-
-
                     let _r = img.pixels[i * 4]
                     let _g = img.pixels[i * 4 + 1]
                     let _b = img.pixels[i * 4 + 2]
@@ -128,7 +127,6 @@
                     let darkness = (r + g + b) / 3;
                     let size = interval / 5;
                     let radius = size / 2;
-
 
                     // left top 
                     push();
