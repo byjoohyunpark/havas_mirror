@@ -106,6 +106,8 @@
                 for (let x = 0; x < img.width; x += interval) {
                     let i = y * width + (img.width - x - 1);
 
+
+
                     let _r = img.pixels[i * 4]
                     let _g = img.pixels[i * 4 + 1]
                     let _b = img.pixels[i * 4 + 2]
@@ -118,11 +120,16 @@
                     let size = interval / 5;
                     let radius = size / 2;
 
+                    // let rr = _r > 255 / 2 ? 255 : 0
+                    // let gg = _g > 255 / 2 ? 255 : 0
+                    // let bb = _b > 255 / 2 ? 255 : 0
+
 
                     // left top 
                     push();
                     rectMode(CORNER);
                     if (mode === 'color') {
+                        // fill(`rgba(${rr},${gg},${bb}, 0.6)`)
                         fill(`rgba(${_r},${_g},${_b}, 0.6)`)
                     } else {
                         fill(0, 255 * 0.6);
@@ -134,6 +141,7 @@
                     push();
                     rectMode(CORNER);
                     if (mode === 'color') {
+                        // fill(`rgba(${rr},${gg},${bb}, 0.4)`)
                         fill(`rgba(${_r},${_g},${_b}, 0.4)`)
                     } else {
                         fill(0, 255 * 0.4);
@@ -145,6 +153,7 @@
                     push();
                     rectMode(RADIUS);
                     if (mode === 'color') {
+                        // fill(`rgba(${rr},${gg},${bb}, 1)`)
                         fill(`rgba(${_r},${_g},${_b}, 1)`)
                     } else {
                         fill(0)
@@ -156,6 +165,7 @@
                     push();
                     rectMode(CORNERS);
                     if (mode === 'color') {
+                        // fill(`rgba(${rr},${gg},${bb}, 1)`)
                         fill(`rgba(${_r},${_g},${_b}, 1)`)
                     } else {
                         fill(0)
