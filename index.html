@@ -57,9 +57,9 @@
             <label>Resolution</label>
             <input type="range" min="-40" max="-5" value="-20" id="slider" oninput="updateRes(this.value)">
         </div>
-        <div class="monochrome">
-            <label>Monochrome</label>
-            <input type="checkbox" id="monochrome" name="monochrome" onclick="toggleMode()">
+        <div class="grayscale">
+            <label>Grayscale</label>
+            <input type="checkbox" id="grayscale" name="grayscale" onclick="toggleMode()">
         </div>
     </div>
 
@@ -68,6 +68,7 @@
         // const width = 1040;
         // const height = 780;
 
+        let background_color = 0;
         let interval = 20;
 
         let width = 0;
@@ -80,9 +81,11 @@
 
         function toggleMode() {
             if (mode === 'color') {
-                mode = 'monochrome'
+                mode = 'grayscale'
+                background_color = 255
             } else {
                 mode = 'color'
+                background_color = 0
             }
         }
 
@@ -100,7 +103,7 @@
         }
 
         function draw() {
-            background(255);
+            background(background_color);
             img.loadPixels();
             for (let y = 0; y < img.height; y += interval) {
                 for (let x = 0; x < img.width; x += interval) {
@@ -120,16 +123,11 @@
                     let size = interval / 5;
                     let radius = size / 2;
 
-                    // let rr = _r > 255 / 2 ? 255 : 0
-                    // let gg = _g > 255 / 2 ? 255 : 0
-                    // let bb = _b > 255 / 2 ? 255 : 0
-
 
                     // left top 
                     push();
                     rectMode(CORNER);
                     if (mode === 'color') {
-                        // fill(`rgba(${rr},${gg},${bb}, 0.6)`)
                         fill(`rgba(${_r},${_g},${_b}, 0.6)`)
                     } else {
                         fill(0, 255 * 0.6);
@@ -141,7 +139,6 @@
                     push();
                     rectMode(CORNER);
                     if (mode === 'color') {
-                        // fill(`rgba(${rr},${gg},${bb}, 0.4)`)
                         fill(`rgba(${_r},${_g},${_b}, 0.4)`)
                     } else {
                         fill(0, 255 * 0.4);
@@ -153,7 +150,6 @@
                     push();
                     rectMode(RADIUS);
                     if (mode === 'color') {
-                        // fill(`rgba(${rr},${gg},${bb}, 1)`)
                         fill(`rgba(${_r},${_g},${_b}, 1)`)
                     } else {
                         fill(0)
@@ -165,7 +161,6 @@
                     push();
                     rectMode(CORNERS);
                     if (mode === 'color') {
-                        // fill(`rgba(${rr},${gg},${bb}, 1)`)
                         fill(`rgba(${_r},${_g},${_b}, 1)`)
                     } else {
                         fill(0)
