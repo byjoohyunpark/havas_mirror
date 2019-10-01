@@ -18,6 +18,10 @@
             font-size: 12px;
         }
 
+        body {
+            background: #000000;
+        }
+
         canvas {
             position: absolute;
             top: 50%;
@@ -83,9 +87,11 @@
             if (mode === 'color') {
                 mode = 'grayscale'
                 background_color = 255
+                document.body.style.background = '#ffffff'
             } else {
                 mode = 'color'
                 background_color = 0
+                document.body.style.background = '#000000'
             }
         }
 
