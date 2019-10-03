@@ -35,7 +35,8 @@
             bottom: 2%;
             right: 2%;
             z-index: 100;
-            background: #fff;
+            background: #ffffff;
+            color: #000000;
             padding: 8px;
         }
 
@@ -90,10 +91,14 @@
                 mode = 'grayscale'
                 background_color = 255
                 document.body.style.background = '#ffffff'
+                document.querySelector('.control').style.background = '#ffffff'
+                document.querySelector('.control').style.color = '#000000'
             } else {
                 mode = 'color'
                 background_color = 0
                 document.body.style.background = '#000000'
+                document.querySelector('.control').style.background = '#000000'
+                document.querySelector('.control').style.color = '#ffffff'
             }
         }
 
